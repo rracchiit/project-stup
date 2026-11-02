@@ -1,0 +1,26 @@
+
+name: Project Setup Pipeline
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Create Project Directory
+        run: mkdir project
+
+      - name: Create Project Files
+        run: |
+          touch project/index.html
+          touch project/style.css
+          touch project/script.js
+
+      - name: Display Created Files
+        run: ls -l project
